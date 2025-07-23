@@ -1,0 +1,7 @@
+﻿field name;data type;data length;key;foreign key;dependency
+order_id;int;;yes;yes, to table order;
+order_no;int;;yes;;
+product_item;varchar;50;;;
+unit_price;number;;;;
+qty;number;;;;
+subtotal;number;;;;select unit_price * qty from order_details where id = :id

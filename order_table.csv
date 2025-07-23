@@ -1,0 +1,6 @@
+﻿field name;data type;data length;key;foreign key;dependency
+order_id;int, autoincrement;;yes;;
+order_date;date;;;;
+description;varchar;50;;;
+customer_name;varchar;20;;;
+total;number;;;;select sum(subtotal) from order_details where orderdetails.order_id = :order_id
