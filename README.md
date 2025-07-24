@@ -48,4 +48,39 @@ npm run dev
 - Backend: Go API with PostgreSQL database
 - Frontend: Svelte application with Vite
 - Database: PostgreSQL with initialization scripts
-- Containerization: Docker and Docker Compose 
+- Containerization: Docker and Docker Compose
+
+## Deployment
+
+This project is configured for deployment with:
+- **Backend**: Railway (Go API)
+- **Frontend**: Vercel (Svelte application)
+- **CI/CD**: GitHub Actions
+
+### Quick Setup
+
+1. Run the setup script:
+   ```bash
+   ./setup-deployment.sh
+   ```
+
+2. Follow the detailed deployment guide:
+   ```bash
+   # See DEPLOYMENT.md for complete instructions
+   ```
+
+### Environment Variables
+
+**Backend (Railway):**
+- `DATABASE_URL`: PostgreSQL connection string
+- `PORT`: Server port (default: 8080)
+
+**Frontend (Vercel):**
+- `VITE_API_URL`: Backend API URL
+
+### CI/CD Pipeline
+
+The project includes automated CI/CD with GitHub Actions:
+- Tests backend and frontend on every push
+- Deploys to Railway and Vercel on main branch
+- Automated testing and building 

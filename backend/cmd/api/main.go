@@ -17,6 +17,10 @@ func main() {
 	defer database.DB.Close()
 
 	// Set up routes
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	})
 	http.HandleFunc("/api/test", handlers.TestEndpoint)
 	http.HandleFunc("/api/orders/create/save", handlers.CreateOrder)
 	http.HandleFunc("/api/orders/create/lookup_customer", handlers.LookupCustomer)
