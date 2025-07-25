@@ -54,7 +54,8 @@ npm run dev
 
 This project is configured for deployment with:
 - **Backend**: Railway (Go API)
-- **Frontend**: Vercel (Svelte application)
+- **Frontend**: Railway or Vercel (Svelte application)
+- **Database**: Railway PostgreSQL
 - **CI/CD**: GitHub Actions
 
 ### Quick Setup

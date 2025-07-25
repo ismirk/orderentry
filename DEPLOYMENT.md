@@ -1,6 +1,6 @@
 # Deployment Guide: Railway (Backend) + Vercel (Frontend) + CI/CD
 
-This guide will help you deploy your Go backend to Railway and your Svelte frontend to Vercel with automated CI/CD using GitHub Actions.
+This guide will help you deploy your Go backend to Railway and your Svelte frontend to either Railway or Vercel with automated CI/CD using GitHub Actions.
 
 ## Prerequisites
 
@@ -36,13 +36,30 @@ This guide will help you deploy your Go backend to Railway and your Svelte front
 2. Create a new token
 3. Copy the token (you'll need this for GitHub Actions)
 
-## Step 2: Set up Vercel (Frontend)
+## Step 2: Set up Frontend Deployment
 
-### 2.1 Create Vercel Account
+### Option A: Deploy to Railway (Recommended for Full-Stack)
+
+#### 2.1 Add Frontend Service to Railway
+1. In your Railway project, click "New Service"
+2. Select "GitHub Repo"
+3. Choose your repository
+4. Set the root directory to `frontend`
+5. Railway will use the Dockerfile for deployment
+
+#### 2.2 Configure Frontend Environment Variables
+Add these environment variables to your frontend service:
+```
+VITE_API_URL=https://your-backend-service-url.railway.app
+```
+
+### Option B: Deploy to Vercel (Frontend-Optimized)
+
+#### 2.1 Create Vercel Account
 1. Go to https://vercel.com
 2. Sign up with your GitHub account
 
-### 2.2 Deploy Frontend to Vercel
+#### 2.2 Deploy Frontend to Vercel
 1. In Vercel dashboard, click "New Project"
 2. Import your GitHub repository
 3. Configure the project:
