@@ -31,6 +31,7 @@ export const apiCall = async (endpoint, options = {}) => {
   const finalOptions = { ...defaultOptions, ...options };
   
   try {
+    console.log('API call (DEBUG):', url, finalOptions);
     const response = await fetch(url, finalOptions);
     
     if (!response.ok) {
