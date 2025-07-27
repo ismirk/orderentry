@@ -3,7 +3,10 @@
   "build": {
     "builder": "DOCKERFILE",
     "dockerfilePath": "frontend/Dockerfile",
-    "context": "frontend"
+    "context": "frontend",
+    "env": {
+      "VITE_API_URL": "https://order-entry-backend-production.up.railway.app"
+    }
   },
   "deploy": {
     "healthcheckPath": "/",
