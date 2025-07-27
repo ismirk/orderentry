@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Product, ProductLookupResponse } from '../types';
     import { createEventDispatcher } from 'svelte';
-
+    import { apiCall } from '../../config';
     const dispatch = createEventDispatcher();
 
     export let isOpen: boolean = false;
@@ -24,7 +24,7 @@
                 params.append('product_name', nameFilter.trim());
             }
 
-            const response = await fetch(`/api/orders/create/lookup_product?${params}`);
+            const response = await apiCall(`/api/orders/create/lookup_product?${params}`);
             
             if (response.ok) {
                 const data: ProductLookupResponse = await response.json();

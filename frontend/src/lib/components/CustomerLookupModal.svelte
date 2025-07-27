@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Customer, CustomerLookupResponse } from '../types';
     import { createEventDispatcher } from 'svelte';
+    import { apiCall } from '../../config';
 
     const dispatch = createEventDispatcher();
 
@@ -23,8 +24,7 @@
             if (nameFilter.trim()) {
                 params.append('customer_name', nameFilter.trim());
             }
-
-            const response = await fetch(`/api/orders/create/lookup_customer?${params}`);
+            const response = await apiCall(`/api/orders/create/lookup_customer?${params}`);
             
             if (response.ok) {
                 const data: CustomerLookupResponse = await response.json();

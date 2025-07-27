@@ -1,7 +1,7 @@
 // API Configuration
 export const API_CONFIG = {
   // Use environment variable for production, fallback to localhost for development
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:8080',
+  BASE_URL: import.meta.env.VITE_API_URL || '',
   
   // API endpoints
   ENDPOINTS: {
@@ -21,24 +21,14 @@ export const buildApiUrl = (endpoint) => {
 export const apiCall = async (endpoint, options = {}) => {
   const url = buildApiUrl(endpoint);
   
-  const defaultOptions = {
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers
-    }
-  };
-  
-  const finalOptions = { ...defaultOptions, ...options };
-  
   try {
-    console.log('API call (DEBUG):', url, finalOptions);
-    const response = await fetch(url, finalOptions);
-    
+    console.log('API call (DEBUG):', url, options);
+    const response = await fetch(url, options);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     
-    return await response.json();
+    return response
   } catch (error) {
     console.error('API call failed:', error);
     throw error;

@@ -3,6 +3,7 @@
     import type { Order, OrderDetails, Customer, Product } from '../types';
     import CustomerLookupModal from './CustomerLookupModal.svelte';
     import ProductLookupModal from './ProductLookupModal.svelte';
+    import { apiCall } from '../../config';
 
     let order: Order = {
         order_date: format(new Date(), 'yyyy-MM-dd'),
@@ -69,7 +70,7 @@
             console.log('Starting order submission...');
             console.log('Order data:', JSON.stringify(order, null, 2));
             
-            const response = await fetch('/api/orders/create/save', {
+            const response = await apiCall('/api/orders/create/save', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
