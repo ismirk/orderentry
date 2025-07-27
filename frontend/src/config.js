@@ -1,7 +1,7 @@
 // API Configuration
 export const API_CONFIG = {
   // Use environment variable for production, fallback to localhost for development
-  BASE_URL: process.env.VITE_API_URL || '',
+  BASE_URL: import.meta.env.VITE_API_URL || '',
   
   // API endpoints
   ENDPOINTS: {

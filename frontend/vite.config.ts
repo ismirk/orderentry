@@ -37,10 +37,5 @@ export default defineConfig({
         manualChunks: undefined
       }
     }
-  },
-  // Environment variables
-  define: {
-    __API_URL__: JSON.stringify(apiUrl),
-    __IS_PRODUCTION__: JSON.stringify(isProduction)
   }
 })
