@@ -56,10 +56,6 @@ func main() {
 
 	// Start server
 	log.Printf("Server starting on port %s", port)
-	if err := http.ListenAndServe(":"+port, nil); err != nil {
-		log.Fatalf("Failed to start server: %v", err)
-	}
-
 	if err := http.ListenAndServe(":"+port, corsMiddleware(mux)); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
